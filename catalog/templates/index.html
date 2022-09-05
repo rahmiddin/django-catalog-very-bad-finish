@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<link type="text/css" rel="stylesheet" href="{% static "css/style.css" %}" media="screen,projection"/>
+	<title>Catalog</title>
+</head>
+<body>
+	{% block content %}
+	<header>
+		<div class="title">
+			Magazine
+		</div>
+		<div class="nav">
+			str
+			str
+			str
+			str
+			str
+
+		</div>
+	</header>
+	<main class="page">
+		<h1>Каталог</h1>
+		<div class="conteiner">
+			<div class="catalog">
+			  	{% for book in books %}
+				<div class="phone__block">
+					<img  src="{{ book.url_img }}" alt="{{ book.title }}"/>
+					<a href="{% url 'book' book.slug %}">
+						<h3>{{ book.title }}</h3>
+					</a>
+					<div class="price">Стоимость: {{ book.price }} ₽</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</main>
+	<footer></footer>
+	{% endblock %}
+</body>
+</html>
